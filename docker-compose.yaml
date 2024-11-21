@@ -31,5 +31,5 @@ services:
     environment:
       - HUB_HOST=hub
     volumes:
-      - ./testcaseoutput/cucumberreport:/home/selenium-docker/target/cucumber-reports
+      - ./testcaseoutput/cucumberreport:/home/selenium-docker/target/cucumber-report
   
