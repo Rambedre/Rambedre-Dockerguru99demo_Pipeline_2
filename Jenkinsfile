@@ -1,24 +1,45 @@
-pipeline 
-{
-    agent any
+pipeline {
+    agent any  // This will run the pipeline on any available agent
 
     stages 
     {
-        stage('Execute Cucumber Test Cases') 
+        stage('Pull the image') 
         {
             steps 
             {
-                bat 'docker-compose up'
+                
+                bat "docker pull attbatch1/dockerfinalimage"
+
             }
         }
 
-
-        stage('Stop Execution') 
+        stage('Start the Grid') 
         {
             steps 
             {
-                bat 'docker-compose down'
+                
+                bat "docker-compose up -d hub chrome firefox"
             }
+        }
+
+        stage('Executing Cucumber TestCases') 
+        {
+            steps 
+            {
+                
+                bat "docker-compose up cucumberbdd"
+            }
+        }
+
+    }
+
+    post 
+
+    {
+        always 
+        {
+            bat "docker-compose down"
         }
     }
+
 }

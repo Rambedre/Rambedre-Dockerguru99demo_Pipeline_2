@@ -12,7 +12,6 @@ services:
       - SE_EVENT_BUS_HOST=hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-      - SE_VNC_NO_PASSWORD=1
 
   firefox:
     image: selenium/node-firefox:4.15.0
@@ -23,14 +22,14 @@ services:
       - SE_EVENT_BUS_HOST=hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-      - SE_VNC_NO_PASSWORD=1
 
-  cucumbertestcases:
-    image: attbbatch1/entiredockerinfra
+  cucumberbdd:
+    image:  attbatch1/dockerfinalimage
     depends_on:
-    - hub
+      - chrome
+      - firefox
     environment:
-    - HUB_HOST=hub
+      - HUB_HOST=hub
     volumes:
-    - ./testcaseoutputfolder/cucumberreport:/home/selenium-docker/target/cucumber-report
-
+      - ./testcaseoutput/cucumberreport:/home/selenium-docker/target/cucumber-reports
+  
