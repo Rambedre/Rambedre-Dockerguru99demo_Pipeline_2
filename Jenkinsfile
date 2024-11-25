@@ -8,7 +8,7 @@ pipeline {
             steps 
             {
                 
-                bat "docker pull attbatch1/guru99latest"
+                bat "docker pull 8669043558/guru99latest"
 
             }
         }
