@@ -24,7 +24,7 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
 
   cucumberbdd:
-    image:  attbatch1/dockerfinalimage
+    image:  attbatch1/guru99latest
     depends_on:
       - chrome
       - firefox

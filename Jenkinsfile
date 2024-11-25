@@ -8,7 +8,7 @@ pipeline {
             steps 
             {
                 
-                bat "docker pull attbatch1/dockerfinalimage"
+                bat "docker pull attbatch1/guru99latest"
 
             }
         }
